@@ -1,5 +1,6 @@
 import os
 import argparse
+import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
@@ -23,6 +24,9 @@ def main():
 
     # Read the image
     img = mpimg.imread(args.image)
+
+    if args.invert:
+        img = 255 - img
 
     # Display the image
     plt.imshow(img, cmap='gray', vmin=0, vmax=255)
